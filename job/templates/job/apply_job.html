@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 50px auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, button {
+            margin-bottom: 16px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="jobApplicationForm" method="post">
+        {% csrf_token %}
+        <label for="fullName">Job Name:</label>
+        <h2>{{x.job_name}}</h2>
+
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="Phone">Phone:</label>
+        <input type="number" id="Phone" name="Phone" required>
+
+        <label for="resume">Resume (PDF or Word):</label>
+        <input type="file" id="resume" name="resume" accept=".pdf, .doc, .docx" required>
+        <br>
+
+        <button type="submit">Submit Application</button>
+    </form>
+
+    <script>
+        document.getElementById("jobApplicationForm").addEventListener("submit", function(event) {
+            var fullName = document.getElementById("fullName").value;
+            var email = document.getElementById("email").value;
+            var resume = document.getElementById("resume").value;
+
+            // You can add additional validation logic here
+
+            if (!fullName || !email || !resume) {
+                alert("Please fill out all fields");
+                event.preventDefault();
+            }
+        });
+    </script>
+
+</body>
+</html>

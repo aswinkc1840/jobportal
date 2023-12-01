@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .approve-btn, .reject-btn {
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .approve-btn {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        .reject-btn {
+            background-color: #f44336;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>User Management</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        {% for i in x %}
+        <tbody>
+            <!-- Example user data, replace this with dynamic data from your server -->
+            <tr>
+                <td>{{i.f_name}}&nbsp;{{i.m_name}}&nbsp;{{i.l_name}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.phone}}</td>
+                <td>{{i.address}}</td>
+                <td>{{i.status}}</td>
+                <td >
+                    <button class="approve-btn" ><a href="/user/approve/{{i.user_id}}">Approve</a>  </button>
+                    <button class="reject-btn" ><a href="/user/reject/{{i.user_id}}">Reject</a>  </button>
+                </td>
+            </tr>
+            <!-- Add more user rows as needed -->
+        </tbody>
+        {% endfor %}
+    </table>
+
+
+
+</body>
+</html>

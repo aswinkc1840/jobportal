@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Job</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Post a Job</h2>
+
+<form  method="post">
+    {% csrf_token %}
+    <label for="jobName">Job Name:</label>
+    <input type="text" id="jobName" name="jobName" required>
+
+    <label for="jobDescription">Job Description:</label>
+    <textarea id="jobDescription" name="jobDescription" rows="4" required></textarea>
+
+    <label for="jobLocation">Location:</label>
+    <input type="text" id="jobLocation" name="jobLocation" required>
+
+    <label for="jobVacancy">Vacancy:</label>
+    <input type="number" id="jobVacancy" name="jobVacancy" required>
+
+    <label for="jobNature">Job Nature:</label>
+    <select id="jobNature" name="jobNature" required>
+        <option value="fullTime">Full Time</option>
+        <option value="partTime">Part Time</option>
+        <option value="contract">Contract</option>
+        <!-- Add more options as needed -->
+    </select>
+
+    <label for="jobSalary">Salary:</label>
+    <input type="text" id="jobSalary" name="jobSalary" required>
+
+    <label for="applicationDate">Application Date:</label>
+    <input type="date" id="applicationDate" name="applicationDate" required>
+
+    <label for="jobSkills">Skills:</label>
+    <textarea id="jobSkills" name="jobSkills" rows="4" required></textarea>
+
+    <label for="jobEducation">Education:</label>
+    <input type="text" id="jobEducation" name="jobEducation" required>
+
+    <label for="jobExperience">Experience:</label>
+    <input type="text" id="jobExperience" name="jobExperience" required>
+
+    <button type="submit">Post Job</button>
+</form>
+
+</body>
+</html>
